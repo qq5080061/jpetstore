@@ -12,4 +12,6 @@
 	<sqlMap resource="org/springframework/samples/jpetstore/dao/ibatis/maps/LineItem.xml"/>
 	<sqlMap resource="org/springframework/samples/jpetstore/dao/ibatis/maps/Sequence.xml"/>
 
+	<sqlMap resource="org/springframework/samples/jpetstore/dao/ibatis/maps/Topic.xml"/>
+
 </sqlMapConfig>

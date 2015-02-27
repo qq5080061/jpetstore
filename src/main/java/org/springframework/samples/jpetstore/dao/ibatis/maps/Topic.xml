@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Topic">
+
+  <cacheModel id="oneDayProduct" type="MEMORY">
+    <flushInterval hours="24"/>
+    <property name="reference-type" value="WEAK"/>
+  </cacheModel>
+
+  <resultMap id="result" class="org.springframework.samples.jpetstore.domain.Topic">
+    <result property="id" column="id" columnIndex="1"/>
+    <result property="author" column="author" columnIndex="2"/>
+    <result property="native_id" column="native_id" columnIndex="3"/>
+    <result property="title" column="title" columnIndex="4"/>
+    <result property="contents" column="contents" columnIndex="5"/>
+    <result property="url" column="url" columnIndex="6"/>
+    <result property="channel" column="channel" columnIndex="7"/>
+    <result property="views" column="views" columnIndex="8"/>
+    <result property="group_id" column="group_id" columnIndex="9"/>
+    <result property="status_id" column="status_id" columnIndex="10"/>
+  </resultMap>
+
+  <select id="getTopic" resultMap="result">
+    select id,author,native_id,title,contents,url,channel,views,group_id,status_id from topic where id = #value#
+  </select>
+
+  <select id="getTopicByNativeId" resultMap="result">
+    select * from topic where native_id = #value#
+  </select>
+<!--
+  <select id="searchProductList" resultMap="result">
+    select productid, name, descn, category from product
+    <dynamic prepend="where">
+      <iterate property="keywordList" open="(" close=")" conjunction="OR">
+        lower(name) like #keywordList[]# OR lower(category) like #keywordList[]# OR lower(descn) like #keywordList[]#
+      </iterate>
+    </dynamic>
+  </select>
+-->
+</sqlMap>

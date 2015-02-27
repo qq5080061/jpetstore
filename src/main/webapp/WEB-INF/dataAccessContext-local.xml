@@ -79,6 +79,11 @@
 		<property name="sqlMapClient" ref="sqlMapClient"/>
 	</bean>
 
+	<!-- 文章DAO -->
+	<bean id="topicDao" class="org.springframework.samples.jpetstore.dao.ibatis.SqlMapTopicDao">
+		<property name="sqlMapClient" ref="sqlMapClient"/>
+	</bean>
+	
 	<!-- Refers to the combined database here -->
 	<!-- (see dataAccessContext-jta.xml for an alternative) -->
 	<bean id="orderDao" class="org.springframework.samples.jpetstore.dao.ibatis.SqlMapOrderDao">

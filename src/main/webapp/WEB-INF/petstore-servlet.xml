@@ -11,7 +11,7 @@
 
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/WEB-INF/jsp/spring/"/>
+		<property name="prefix" value="/WEB-INF/jsp/spring/"/><!-- 视图JSP所在路径设置 -->
 		<property name="suffix" value=".jsp"/>
 	</bean>
 
@@ -27,7 +27,7 @@
 	<bean name="/shop/checkout.do" class="org.springframework.samples.jpetstore.web.spring.ViewCartController">
 		<property name="successView" value="Checkout"/>
 	</bean>
-
+	<!-- 首页直接定义viewName指定跳转的jsp为index.jsp 无coutomize的ViewController 用默认的ParameterizableViewController-->
 	<bean name="/shop/index.do" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="index"/>
 	</bean>
@@ -72,7 +72,23 @@
 		<property name="petStore" ref="petStore"/>
 	</bean>
 
-
+	<!-- 新画面 -->
+	<bean name="/shop/viewTopic.do" class="org.springframework.samples.jpetstore.web.spring.ViewTopicController">
+		<property name="topic" ref="topic"/>
+	</bean>
+	<!-- 注册画面 -->
+	<bean name="/shop/register.do" class="org.springframework.samples.jpetstore.web.spring.RegisterFormController">
+		<property name="topic" ref="topic"/>
+		<property name="validator" ref="accountValidator"/>
+		<property name="successView" value="index"/>
+	</bean>
+	<bean name="/shop/register2.do" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="register"/>
+	</bean>
+	<!-- 登陆画面 
+	<bean name="/shop/signon2.do" class="org.springframework.samples.jpetstore.web.spring.SignonController">
+		<property name="topic" ref="topic"/>
+	</bean>-->
 	<!-- ========================= DEFINITIONS OF PROTECTED CONTROLLERS ========================= -->
 
 	<bean id="secureHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">

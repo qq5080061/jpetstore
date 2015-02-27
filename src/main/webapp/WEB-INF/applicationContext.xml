@@ -59,7 +59,16 @@
 		<property name="orderDao" ref="orderDao"/>
 	</bean>
 
+	<!-- 新配置 -->
+	<bean id="topic" class="org.springframework.samples.jpetstore.domain.logic.TopicImpl">
+		<property name="accountDao" ref="accountDao"/>
+		<property name="categoryDao" ref="categoryDao"/>
+		<property name="productDao" ref="productDao"/>
+		<property name="itemDao" ref="itemDao"/>
+		<property name="orderDao" ref="orderDao"/>
 
+		<property name="topicDao" ref="topicDao"/>
+	</bean>
 
 	<!-- ========================= ASPECT CONFIGURATION ======================== -->
 

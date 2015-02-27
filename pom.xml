@@ -230,6 +230,21 @@
 		  <artifactId>tomcat-jdbc</artifactId>
 		  <version>7.0.35</version>
 		</dependency>
+		
+		<!-- readability for java -->
+<!--  
+		 <dependency>
+		    <groupId>de.jetwick</groupId>
+		    <artifactId>snacktory</artifactId>
+		    <version>1.2</version>
+		 </dependency>
+-->
+		<!-- mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
 
 	</dependencies>
 	
@@ -257,6 +272,23 @@
 			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
 			<url>http://repository.springsource.com/maven/bundles/external</url>
 		</repository>
+		
+		<!-- readability for java -->
+		<repository>
+		  <id>karussell_snapshots</id>
+		  <url>https://github.com/karussell/mvnrepo/raw/master/snapshots/</url>
+		</repository>             
+		
+		<repository>
+		  <id>karussell_releases</id>           
+		  <url>https://github.com/karussell/mvnrepo/raw/master/releases/</url>
+		</repository>
+		
+		<repository>
+		  <id>maven2_releases</id>
+		  <url>http://central.maven.org/maven2/</url>
+		</repository> 
+
 	</repositories>
 
 	<build>
@@ -271,17 +303,19 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-
+		<pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>  
 				<configuration>
 					<source>1.5</source>
 					<target>1.5</target>
 				</configuration>
 			</plugin>
 		</plugins>
+		</pluginManagement>
 	</build>
 	
 		
